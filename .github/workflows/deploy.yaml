@@ -17,7 +17,7 @@ on:
       key:
         type: string
         description: app id
-        required: ${{inputs.setSecrets}}
+        required: true
 jobs:
   infra-deployment:
     runs-on: ubuntu-latest
