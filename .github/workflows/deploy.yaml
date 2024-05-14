@@ -13,6 +13,8 @@ on:
 jobs:
   infra-deployment:
     runs-on: ubuntu-latest
+    env:
+      Target-Env: ${{ inputs.Target-Env }}
     steps:
       - name: Install Node
         uses: actions/setup-node@v4
