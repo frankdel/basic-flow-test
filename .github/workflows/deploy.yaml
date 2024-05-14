@@ -10,6 +10,10 @@ on:
         options:
           - "dev"
           - "qa"
+      key:
+        type: string
+        description: app id
+        required: ${{ inputs.Target-Env == "dev" && true || false }}
 jobs:
   infra-deployment:
     runs-on: ubuntu-latest
@@ -28,6 +32,6 @@ jobs:
         run: npm run main
         env:
           App: testerMain
-          
+
       - name: Other Action
         uses: ./.github/actions/deploy-secrets
