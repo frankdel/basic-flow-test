@@ -1,0 +1,27 @@
+name: Simple Test
+
+on:
+  workflow_dispatch:
+    inputs:
+      Target-Env:
+        type: choice
+        description: Target environment
+        required: true
+        options:
+          - "dev"
+          - "qa"
+jobs:
+  infra-deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run node
+        run: |
+          npm run main
