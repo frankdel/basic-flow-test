@@ -10,10 +10,14 @@ on:
         options:
           - "dev"
           - "qa"
+      setSecrets:
+        type: boolean
+        description: Set new secrets
+        required: true
       key:
         type: string
         description: app id
-        required: false
+        required: ${{inputs.setSecrets}}
 jobs:
   infra-deployment:
     runs-on: ubuntu-latest
