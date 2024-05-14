@@ -28,3 +28,5 @@ jobs:
         run: npm run main
         env:
           App: testerMain
+      - name: Other Action
+        uses: ./.github/actions/deploy-secrets

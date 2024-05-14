@@ -1,0 +1,15 @@
+name: Deploy-Secrets
+description: Action to set and deploy secret values
+inputs:
+  key:
+    required: true
+    description: some app key
+  password:
+    required: true
+    description: some password
+runs:
+  using: composite
+  steps:
+    - name: Run other
+      run: npm run other
+      shell: bash
