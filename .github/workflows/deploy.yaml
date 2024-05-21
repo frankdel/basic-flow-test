@@ -18,6 +18,10 @@ on:
         type: string
         description: app id
         required: true
+      deployS3Only:
+        type: boolean
+        description: deploy s3 only or deploy all other resourses
+        required: true
 jobs:
   infra-deployment:
     runs-on: ubuntu-latest
@@ -36,6 +40,11 @@ jobs:
         run: npm run main
         env:
           App: testerMain
-
-      - name: Other Action
-        uses: ./.github/actions/deploy-secrets
+      
+      - name: Deploy all resources
+        run: echo "deploy s3 only not selected %{{ inputs.deployS3Only }}"
+        if: ${{ !inputs.deployS3Only }}
+      
+      - name: Deploy only S3
+        run: echo "deploy s3 only WAS selected %{{ inputs.deployS3Only }}"
+        if: ${{ inputs.deployS3Only }}

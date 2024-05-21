@@ -7,6 +7,7 @@ inputs:
   password:
     required: true
     description: some password
+
 runs:
   using: composite
   steps:
