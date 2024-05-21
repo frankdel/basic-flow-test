@@ -42,9 +42,9 @@ jobs:
           App: testerMain
       
       - name: Deploy all resources
-        run: echo "deploy s3 only not selected %{{ inputs.deployS3Only }}"
+        run: echo "deploy s3 only not selected ${{ inputs.deployS3Only }}"
         if: ${{ !inputs.deployS3Only }}
       
       - name: Deploy only S3
-        run: echo "deploy s3 only WAS selected %{{ inputs.deployS3Only }}"
+        run: echo "deploy s3 only WAS selected ${{ inputs.deployS3Only }}"
         if: ${{ inputs.deployS3Only }}
