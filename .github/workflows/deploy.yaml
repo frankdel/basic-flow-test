@@ -26,8 +26,6 @@ jobs:
   infra-deployment:
     runs-on: ubuntu-latest
     environment: dev
-    env:
-      Target: ${{ inputs.Target-Env }}
     steps:
       - name: Install Node
         uses: actions/setup-node@v4
